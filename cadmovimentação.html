@@ -1,0 +1,47 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Movimentação de Estoque</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="form-container uiverse-form">
+    <h2>Movimentação de Estoque</h2>
+    <form action="movimentacao.php" method="post">
+      <label for="tipo">Tipo de Movimentação
+        <select id="tipo" name="tipo" required>
+          <option value="">--Selecione--</option>
+          <option value="Entrada">Entrada</option>
+          <option value="Saída">Saída</option>
+        </select>
+      </label>
+
+      <label for="produto">Produto
+        <select id="produto" name="produto" required>
+          <option value="">--Selecione--</option>
+          <?php foreach ($produtos as $p): ?>
+            <option value="<?= htmlspecialchars($p['id']) ?>">
+              <?= htmlspecialchars($p['nome']) ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+      </label>
+
+      <label for="quantidade">Quantidade
+        <input type="number" id="quantidade" name="quantidade" min="1" required>
+      </label>
+
+      <label for="data">Data
+        <input type="date" id="data" name="data" required>
+      </label>
+
+      <label for="motivo">Motivo
+        <textarea id="motivo" name="motivo" rows="3" required></textarea>
+      </label>
+
+      <button type="submit">Registrar Movimentação</button>
+    </form>
+    <a href="home.html" class="btn-voltar">Voltar</a>
+  </div>
+</body>
+</html>
