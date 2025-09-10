@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Todos os campos são obrigatórios.");
     }
 
-    // Salvar os usuários num arquivo JSON simples (em produção usar banco de dados)
+
     $arquivoUsuarios = 'usuarios.json';
 
     // Ler usuários atuais
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Criar novo usuário (senha criptografada)
+   
     $novoUsuario = [
         'nome' => $nome,
         'dataNascimento' => $dataNascimento,
